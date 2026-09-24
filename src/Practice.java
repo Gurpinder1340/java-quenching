@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.HashSet;
 
 public class Practice {
     /**
@@ -39,7 +40,7 @@ public class Practice {
          if (words == null) {
             throw new NullPointerException("Word is null");
         }
-        
+
         if (words.isEmpty()) {
             throw new IllegalArgumentException("Word is empty");
         }
@@ -70,8 +71,19 @@ public class Practice {
      * @throws NullPointerException if ages is null
      */
     public static Set<String> adults(Map<String, Integer> ages) {
-        return null;
-    }
+        if (ages == null) 
+        throw new NullPointerException("Age is null");
+    
+         Set<String> result = new HashSet<>();
+         for(Map.Entry<String, Integer> entry : ages.entrySet()) {
+            if (entry.getValue() >= 18) {
+                result.add(entry.getKey());
+            }
+         }
+
+            return result;
+    
+        }
 
     /**
      * Returns the biggest number in a linked list.
